@@ -850,12 +850,6 @@ class NMatrix
         raise Exception.new("incompatible dimensions")
         return nil
       end
-      #check shape
-      (0...dim).each do |i|
-        if (@shape[i] != other.shape[i])
-          raise Exception.new("cannot add matrices with different shapes");
-        end
-      end
       resultArray = @nmat.twoDMat.multiply(other.nmat.twoDMat).to_a
       newShape= [@shape[0],other.shape[1]]
       result = NMatrix.new(newShape, resultArray,  dtype: :int64)
