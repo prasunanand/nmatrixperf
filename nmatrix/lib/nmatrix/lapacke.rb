@@ -32,7 +32,8 @@ require_relative 'lapack_ext_common'
 
 NMatrix.register_lapack_extension("nmatrix-lapacke")
 
-require "nmatrix_lapacke.so"
+puts 1
+require_relative "nmatrix_lapacke.so"
 
 class NMatrix
   #Add functions from the LAPACKE C extension to the main LAPACK and BLAS modules.

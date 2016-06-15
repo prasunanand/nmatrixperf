@@ -1,11 +1,11 @@
 import org.apache.commons.math3.linear.RealMatrix;
-import org.apache.commons.math3.linear.BlockRealMatrix;
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.ArrayRealVector;
 import org.apache.commons.math3.linear.RealVector;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.LUDecomposition;
+import org.apache.commons.math3.linear.BlockRealMatrix;
 
 public class JNMatrixTwoD{
 	int rows, cols;
@@ -58,7 +58,7 @@ public class JNMatrixTwoD{
 		set_cols(shape[1]);
 		this.nmat2d = MatrixUtils.createRealMatrix(this.two_d_array_generator(shape, oneDArray));
 		this.nmat2dblock = new BlockRealMatrix(this.two_d_array_generator(shape, oneDArray));
-		if (shape[0] == shape[1]){
+		if(shape[0]==shape[1]){
 			solver = new LUDecomposition(this.nmat2d);
 		}
 	}
@@ -99,7 +99,7 @@ public class JNMatrixTwoD{
 	}
 
 	public double[] multiply(JNMatrixTwoD other){
-		BlockRealMatrix result = this.nmat2dblock.multiply(other.nmat2dblock);
+		BlockRealMatrix result = this.nmat2dblock.multiply(other.nmat2d);
 		return this.one_d_array_generator(rows, cols, result.getData());
 	}
 
