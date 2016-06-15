@@ -27,13 +27,12 @@
 # nice ruby interfaces for LAPACK functions.
 #++
 
-require 'nmatrix/nmatrix.rb' #need to have nmatrix required first or else bad things will happen
+require_relative '../nmatrix.rb' #need to have nmatrix required first or else bad things will happen
 require_relative 'lapack_ext_common'
 
 NMatrix.register_lapack_extension("nmatrix-lapacke")
 
-puts 1
-require_relative "nmatrix_lapacke.so"
+require_relative "../nmatrix_lapacke.so"
 
 class NMatrix
   #Add functions from the LAPACKE C extension to the main LAPACK and BLAS modules.

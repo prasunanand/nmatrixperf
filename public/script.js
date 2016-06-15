@@ -4,12 +4,16 @@ app.controller('MainCtrl', function($scope, $http) {
 
   resultRubyUrl = "ruby.json"
   resultJavaRubyUrl = "jruby.json"
+  resultLapackeRubyUrl = "ruby-lapacke.json"
+
 
   $scope.checked= false;
   $http.get(resultRubyUrl).success(function(data) {
      $http.get(resultJavaRubyUrl).success(function(data2) {
+      $http.get(resultLapackeRubyUrl).success(function(data3) {
     $scope.charts = data.features;
     data.features.jruby = data2.features.jruby
+    data.features.rubyLapacke = data3.features.ruby
     console.log($scope.charts);
 
     for (key in $scope.charts.jruby){
@@ -56,11 +60,15 @@ app.controller('MainCtrl', function($scope, $http) {
                 },{
                   name: "jruby",
                   data: $scope.charts.jruby[key]
+                },{
+                  name: "ruby-lapacke",
+                  data: $scope.charts.rubyLapacke[key]
                 },
               ]
         });
         });
     }
+  });
   });
   });
 

@@ -1,4 +1,6 @@
-require_relative 'nmatrix/lib/nmatrix'
+# require_relative 'nmatrix/lib/nmatrix'
+# require_relative 'nmatrix/lib/nmatrix/lapacke'
+require_relative 'nmatrix/lib/nmatrix/atlas'
 
 require 'benchmark'
 require 'json'

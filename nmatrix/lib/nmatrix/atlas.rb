@@ -27,13 +27,13 @@
 # nice ruby interfaces for ATLAS functions.
 #++
 
-require 'nmatrix/nmatrix.rb'
+require_relative '../nmatrix.rb'
  #need to have nmatrix required first or else bad things will happen
 require_relative 'lapack_ext_common'
 
 NMatrix.register_lapack_extension("nmatrix-atlas")
 
-require "nmatrix_atlas.so"
+require_relative "../nmatrix_atlas.so"
 
 class NMatrix
 
